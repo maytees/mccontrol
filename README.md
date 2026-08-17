@@ -1,9 +1,11 @@
 # Shared Controls — downloads
 
 One Minecraft character, several brains. One player is the **Body**; everyone else
-drives one slice of their controls (movement, camera, clicks, inventory) from their
-own Minecraft client, all on the same server. No web pages, no IPs, no port
-forwarding — everything rides the Minecraft server connection.
+sees the world **through the Body's eyes** (locked spectator view with the Body's
+hotbar and health) while their own mouse/keyboard drives one slice of the Body's
+controls — camera, clicks, movement, inventory. The Body can keep some controls
+for themself (e.g. walk their own body while others aim and click). All on the same
+server: no web pages, no IPs, no port forwarding.
 
 **For Minecraft 26.2** (Fabric on the clients, Paper on the server).
 
@@ -11,8 +13,8 @@ forwarding — everything rides the Minecraft server connection.
 
 | file | who installs it | where |
 |---|---|---|
-| [`sharedcontrols-0.1.0.jar`](sharedcontrols-0.1.0.jar) | **every player** (Body + controllers) | Minecraft `mods/` folder |
-| [`sharedcontrols-relay-0.1.0.jar`](sharedcontrols-relay-0.1.0.jar) | **the server** | Paper `plugins/` folder |
+| [`sharedcontrols-0.2.0.jar`](sharedcontrols-0.2.0.jar) | **every player** (Body + controllers) | Minecraft `mods/` folder |
+| [`sharedcontrols-relay-0.2.0.jar`](sharedcontrols-relay-0.2.0.jar) | **the server** | Paper `plugins/` folder |
 
 ## Install
 
@@ -20,13 +22,14 @@ forwarding — everything rides the Minecraft server connection.
 
 1. Install [Fabric Loader](https://fabricmc.net/use/installer/) for Minecraft **26.2**.
 2. Put in your `mods/` folder (Windows: `%appdata%\.minecraft\mods`, Mac: `~/Library/Application Support/minecraft/mods`):
-   - `sharedcontrols-0.1.0.jar` (from this repo)
+   - `sharedcontrols-0.2.0.jar` (from this repo)
    - [Fabric API](https://modrinth.com/mod/fabric-api) 0.157.0+26.2
 3. Launch with the Fabric profile.
 
 ### Server (once)
 
-Drop `sharedcontrols-relay-0.1.0.jar` into the server's `plugins/` folder and restart.
+Drop `sharedcontrols-relay-0.2.0.jar` into the server's `plugins/` folder (remove any
+older sharedcontrols-relay jar) and restart.
 Must be a Paper (or Paper-fork) server on Minecraft 26.2. The console should log
 `[SharedControlsRelay] Shared Controls relay ready`. The plugin only relays messages —
 it never touches gameplay, and players without the mod are unaffected.
@@ -51,25 +54,30 @@ Everyone joins the server, then in chat:
 ```
 body>        /sc body                      claim Body
 controllers> /sc join                      each controller — that's the whole setup
-body>        /sc assign movement <name>
-body>        /sc assign camera <name>
+body>        /sc assign movement <name>    (you can assign a role to YOURSELF too —
+body>        /sc assign camera <name>       the Body keeps those controls)
 body>        /sc assign hands <name>
-body>        /sc start                     Body's controls die, controllers take over
+body>        /sc start
 ```
+
+On `/sc start`: every controller is snapped into a locked spectator view **through the
+Body's eyes** (they see the Body's crosshair, hotbar and health), and everyone's
+inputs reduce to exactly their role. On `/sc stop` every controller instantly pops
+back to where they were standing, in their old gamemode, with full control.
 
 While running:
 
-- **Movement** holder: your WASD / space / shift / sprint walk the Body (your own character freezes for those keys).
-- **Camera** holder: your mouse aims the Body; your own view turns with it.
-- **Interact** holder: your mouse buttons mine / attack / place / use as the Body.
-- **Inventory** holder: keys 1–9 / Q / F work the Body's hotbar; press **E** for a live
-  mirror of the Body's inventory (or open chest) — click slots to move items,
-  shift-click to quick-move.
-- Anyone: `/sc table` (who holds what), `/sc say <msg>` (chat role).
-- Body: `/sc swap <a> <b>` (trade two people's roles mid-game), `/sc unassign <role>`,
-  `/sc clear`, `/sc stop` (instantly get your body back).
+- **Movement** holder: WASD / space / shift / sprint walk the Body.
+- **Camera** holder: their mouse aims the Body — and since everyone watches through
+  the Body, aiming turns everyone's shared view.
+- **Interact** holder: mouse buttons mine / attack / place / use as the Body.
+- **Inventory** holder: keys 1–9 / Q / F work the Body's hotbar; **E** opens a live
+  mirror of the Body's inventory (or open chest) — click to move items.
+- **The Body**: dead controls except chat, `/` commands, Esc — plus any role assigned
+  to their own name, which works on their normal keys.
+- Body types: `/sc swap <a> <b>` (trade roles mid-game), `/sc table`, `/sc unassign`,
+  `/sc reload` (re-read config), `/sc stop`.
 
 Rules the mod enforces: one person per role; an unassigned role does nothing; a
-controller who disconnects has their roles unassigned and everyone is told; `/sc stop`
-always returns the Body to normal instantly; nothing about the world, the server, or
-other players is ever modified.
+controller who disconnects has their roles unassigned, their spectator view undone,
+and everyone is told; `/sc stop` always returns everyone to normal instantly.
