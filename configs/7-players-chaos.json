@@ -1,0 +1,14 @@
+{
+  "enableWebFallback": false,
+  "httpPort": 8750,
+  "wsPort": 8751,
+  "cameraSensitivity": 0.15,
+  "roles": {
+    "movement": ["movement"],
+    "camera": ["camera"],
+    "leftclick": ["attack"],
+    "rightclick": ["use"],
+    "inventory": ["inventory"],
+    "chat": ["chat"]
+  }
+}
