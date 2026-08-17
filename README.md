@@ -14,7 +14,7 @@ server: no web pages, no IPs, no port forwarding.
 | file | who installs it | where |
 |---|---|---|
 | [`sharedcontrols-0.5.0.jar`](sharedcontrols-0.5.0.jar) | **every player** (Body + controllers) | Minecraft `mods/` folder |
-| [`sharedcontrols-relay-0.2.1.jar`](sharedcontrols-relay-0.2.1.jar) | **the server** | Paper `plugins/` folder |
+| [`sharedcontrols-relay-0.2.2.jar`](sharedcontrols-relay-0.2.2.jar) | **the server** | Paper `plugins/` folder |
 
 ## Install
 
@@ -28,7 +28,7 @@ server: no web pages, no IPs, no port forwarding.
 
 ### Server (once)
 
-Drop `sharedcontrols-relay-0.2.1.jar` into the server's `plugins/` folder (remove any
+Drop `sharedcontrols-relay-0.2.2.jar` into the server's `plugins/` folder (remove any
 older sharedcontrols-relay jar) and restart.
 Must be a Paper (or Paper-fork) server on Minecraft 26.2. The console should log
 `[SharedControlsRelay] Shared Controls relay ready`. The plugin only relays messages —
