@@ -13,8 +13,8 @@ server: no web pages, no IPs, no port forwarding.
 
 | file | who installs it | where |
 |---|---|---|
-| [`sharedcontrols-0.3.0.jar`](sharedcontrols-0.3.0.jar) | **every player** (Body + controllers) | Minecraft `mods/` folder |
-| [`sharedcontrols-relay-0.2.0.jar`](sharedcontrols-relay-0.2.0.jar) | **the server** | Paper `plugins/` folder |
+| [`sharedcontrols-0.3.1.jar`](sharedcontrols-0.3.1.jar) | **every player** (Body + controllers) | Minecraft `mods/` folder |
+| [`sharedcontrols-relay-0.2.1.jar`](sharedcontrols-relay-0.2.1.jar) | **the server** | Paper `plugins/` folder |
 
 ## Install
 
@@ -22,13 +22,13 @@ server: no web pages, no IPs, no port forwarding.
 
 1. Install [Fabric Loader](https://fabricmc.net/use/installer/) for Minecraft **26.2**.
 2. Put in your `mods/` folder (Windows: `%appdata%\.minecraft\mods`, Mac: `~/Library/Application Support/minecraft/mods`):
-   - `sharedcontrols-0.3.0.jar` (from this repo)
+   - `sharedcontrols-0.3.1.jar` (from this repo)
    - [Fabric API](https://modrinth.com/mod/fabric-api) 0.157.0+26.2
 3. Launch with the Fabric profile.
 
 ### Server (once)
 
-Drop `sharedcontrols-relay-0.2.0.jar` into the server's `plugins/` folder (remove any
+Drop `sharedcontrols-relay-0.2.1.jar` into the server's `plugins/` folder (remove any
 older sharedcontrols-relay jar) and restart.
 Must be a Paper (or Paper-fork) server on Minecraft 26.2. The console should log
 `[SharedControlsRelay] Shared Controls relay ready`. The plugin only relays messages —
