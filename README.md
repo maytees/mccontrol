@@ -14,7 +14,7 @@ pages, no IPs, no port forwarding.
 
 | file | who installs it | where |
 |---|---|---|
-| [`sharedcontrols-0.6.0.jar`](sharedcontrols-0.6.0.jar) | **every player** (Body + controllers) | Minecraft `mods/` folder |
+| [`sharedcontrols-0.6.1.jar`](sharedcontrols-0.6.1.jar) | **every player** (Body + controllers) | Minecraft `mods/` folder |
 | [`sharedcontrols-relay-0.2.3.jar`](sharedcontrols-relay-0.2.3.jar) | **the server** | Paper `plugins/` folder |
 
 ## Install
@@ -23,7 +23,7 @@ pages, no IPs, no port forwarding.
 
 1. Install [Fabric Loader](https://fabricmc.net/use/installer/) for Minecraft **26.2**.
 2. Put in your `mods/` folder (Windows: `%appdata%\.minecraft\mods`, Mac: `~/Library/Application Support/minecraft/mods`):
-   - `sharedcontrols-0.6.0.jar` (from this repo)
+   - `sharedcontrols-0.6.1.jar` (from this repo)
    - [Fabric API](https://modrinth.com/mod/fabric-api) 0.157.0+26.2
 3. Launch with the Fabric profile.
 
