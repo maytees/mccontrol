@@ -13,7 +13,7 @@ server: no web pages, no IPs, no port forwarding.
 
 | file | who installs it | where |
 |---|---|---|
-| [`sharedcontrols-0.2.1.jar`](sharedcontrols-0.2.1.jar) | **every player** (Body + controllers) | Minecraft `mods/` folder |
+| [`sharedcontrols-0.3.0.jar`](sharedcontrols-0.3.0.jar) | **every player** (Body + controllers) | Minecraft `mods/` folder |
 | [`sharedcontrols-relay-0.2.0.jar`](sharedcontrols-relay-0.2.0.jar) | **the server** | Paper `plugins/` folder |
 
 ## Install
@@ -22,7 +22,7 @@ server: no web pages, no IPs, no port forwarding.
 
 1. Install [Fabric Loader](https://fabricmc.net/use/installer/) for Minecraft **26.2**.
 2. Put in your `mods/` folder (Windows: `%appdata%\.minecraft\mods`, Mac: `~/Library/Application Support/minecraft/mods`):
-   - `sharedcontrols-0.2.1.jar` (from this repo)
+   - `sharedcontrols-0.3.0.jar` (from this repo)
    - [Fabric API](https://modrinth.com/mod/fabric-api) 0.157.0+26.2
 3. Launch with the Fabric profile.
 
@@ -60,10 +60,13 @@ body>        /sc assign hands <name>
 body>        /sc start
 ```
 
-On `/sc start`: every controller is snapped into a locked spectator view **through the
-Body's eyes** (they see the Body's crosshair, hotbar and health), and everyone's
-inputs reduce to exactly their role. On `/sc stop` every controller instantly pops
-back to where they were standing, in their old gamemode, with full control.
+On `/sc start`: every controller is snapped into a view **through the Body's eyes**
+that looks like normal first-person play — the Body's held item in hand, the Body's
+hotbar, hearts and crosshair — and everyone's inputs reduce to exactly their role
+(F5 flips to third person to watch the Body). When anyone opens the Body's inventory
+or a chest, **it opens on everyone's screen** — the inventory holder clicks, the rest
+watch. On `/sc stop` every controller instantly pops back to where they were
+standing, in their old gamemode, with full control.
 
 While running:
 
